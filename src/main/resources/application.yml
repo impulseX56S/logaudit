@@ -1,0 +1,26 @@
+spring:
+  cloud:
+    stream:
+      rabbit:
+        bindings:
+          base-in:
+            consumer:
+              queueNameGroupOnly: true
+              bindQueue: false
+              declareExchange: false
+      bindings:
+        base-in:
+          binder: rabbit
+          destination: rabbit.log.preview
+          group: info
+          consumer:
+            concurrency: 1
+
+  rabbitmq:
+    host: 116.62.52.213
+    username: app
+    password: ebowin-server
+
+  elasticsearch:
+    rest:
+      uris: http://192.168.1.12:9200
